@@ -1,7 +1,7 @@
 import { ShoppingCart } from "@mui/icons-material";
 
 const CartWidget = () => {
-  const cartItemCount = 7; // Número estático del carrito
+  const cartItemCount = 7;
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>

@@ -1,10 +1,12 @@
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { AppBar, Toolbar, Button } from "@mui/material";
 import CartWidget from "../../common/cart.Widget/CartWidget";
 import "./Navbar.css";
 
 const Navbar = () => {
   const logoURL =
     "https://res.cloudinary.com/dvpasesj3/image/upload/v1687271891/samples/ecommerce/logo-ECO_bnyqku.png";
+  const logoURL2 =
+    "https://res.cloudinary.com/dvpasesj3/image/upload/v1687288049/title.logo_eom2ej.png";
   return (
     <AppBar
       position="static"
@@ -18,26 +20,33 @@ const Navbar = () => {
       <Toolbar>
         <div style={styles.logoContainer}>
           <img src={logoURL} alt="Logo" style={styles.logoImage} />
-          <Typography
-            variant="h6"
-            component="h2"
-            style={styles.heading}
-            className="logo-title"
-          >
-            Tecno-Media
-          </Typography>
+          <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
         </div>
         <div style={styles.menu}>
-          <Button color="inherit" sx={styles.menuItem}>
+          <Button color="inherit" size="small" sx={styles.menuItem}>
             Inicio
           </Button>
-          <Button color="inherit" sx={styles.menuItem}>
-            Acerca de
+          <Button color="inherit" size="small" sx={styles.menuItem}>
+            Teclados
           </Button>
-          <Button color="inherit" sx={styles.menuItem}>
-            Servicios
+          <Button color="inherit" size="small" sx={styles.menuItem}>
+            Mouse
           </Button>
-          <Button color="inherit" sx={styles.menuItem}>
+          <Button color="inherit" size="small" sx={styles.menuItem}>
+            Auriculares
+          </Button>
+          <Button color="inherit" size="small" sx={styles.menuItem}>
+            Monitores
+          </Button>
+          <Button color="inherit" size="small" sx={styles.menuItem}>
+            Pad
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            color="success"
+            sx={styles.menuItem}
+          >
             Contacto
           </Button>
         </div>
@@ -62,6 +71,11 @@ const styles = {
     height: "50px",
     marginRight: "10px",
   },
+  logoImage2: {
+    width: "200px",
+    height: "40px",
+    marginRight: "10px",
+  },
   heading: {
     margin: 0,
   },
@@ -70,6 +84,7 @@ const styles = {
   },
   menuItem: {
     marginLeft: "10px",
+    marginRight: "5px",
   },
 };
 
