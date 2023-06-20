@@ -23,6 +23,7 @@ const footerStyle = {
 
 const leftStyle = {
   marginRight: "auto",
+  color: "white",
 };
 
 export default Footer;
