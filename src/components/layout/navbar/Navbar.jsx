@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Button } from "@mui/material";
 import CartWidget from "../../common/cart.Widget/CartWidget";
 import "./Navbar.css";
+import ItemListContainer from "../../pages/itemList/ItemListContainer";
 
 const Navbar = () => {
   const logoURL =
@@ -8,51 +9,54 @@ const Navbar = () => {
   const logoURL2 =
     "https://res.cloudinary.com/dvpasesj3/image/upload/v1687288049/title.logo_eom2ej.png";
   return (
-    <AppBar
-      position="static"
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        backgroundColor: "black",
-      }}
-    >
-      <Toolbar>
-        <div style={styles.logoContainer}>
-          <img src={logoURL} alt="Logo" style={styles.logoImage} />
-          <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
-        </div>
-        <div style={styles.menu}>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Inicio
-          </Button>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Teclados
-          </Button>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Mouse
-          </Button>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Auriculares
-          </Button>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Monitores
-          </Button>
-          <Button color="inherit" size="small" sx={styles.menuItem}>
-            Pad
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            color="success"
-            sx={styles.menuItem}
-          >
-            Contacto
-          </Button>
-        </div>
-        <CartWidget />
-      </Toolbar>
-    </AppBar>
+    <div>
+      <AppBar
+        position="static"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          backgroundColor: "black",
+        }}
+      >
+        <Toolbar>
+          <div style={styles.logoContainer}>
+            <img src={logoURL} alt="Logo" style={styles.logoImage} />
+            <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
+          </div>
+          <div style={styles.menu}>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Inicio
+            </Button>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Teclados
+            </Button>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Mouse
+            </Button>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Auriculares
+            </Button>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Monitores
+            </Button>
+            <Button color="inherit" size="small" sx={styles.menuItem}>
+              Pad
+            </Button>
+            <Button
+              variant="contained"
+              size="small"
+              color="success"
+              sx={styles.menuItem}
+            >
+              Contacto
+            </Button>
+          </div>
+          <CartWidget />
+        </Toolbar>
+      </AppBar>
+      <ItemListContainer />
+    </div>
   );
 };
 
