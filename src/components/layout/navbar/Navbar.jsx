@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Button } from "@mui/material";
 import CartWidget from "../../common/cart.Widget/CartWidget";
 import "./Navbar.css";
-import ItemListContainer from "../../pages/itemList/ItemListContainer";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const logoURL =
@@ -20,29 +20,43 @@ const Navbar = () => {
         }}
       >
         <Toolbar>
-          <div style={styles.logoContainer}>
-            <img src={logoURL} alt="Logo" style={styles.logoImage} />
-            <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
-          </div>
+          <Link to="/">
+            <div style={styles.logoContainer}>
+              <img src={logoURL} alt="Logo" style={styles.logoImage} />
+              <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
+            </div>
+          </Link>
           <div style={styles.menu}>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Inicio
-            </Button>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Teclados
-            </Button>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Mouse
-            </Button>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Auriculares
-            </Button>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Monitores
-            </Button>
-            <Button color="inherit" size="small" sx={styles.menuItem}>
-              Pad
-            </Button>
+            <Link to="/">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Todo
+              </Button>
+            </Link>
+            <Link to="/category/teclados">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Teclados
+              </Button>
+            </Link>
+            <Link to="/category/mouse">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Mouse
+              </Button>
+            </Link>
+            <Link to="/category/auriculares">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Auriculares
+              </Button>
+            </Link>
+            <Link to="/category/monitores">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Monitores
+              </Button>
+            </Link>
+            <Link to="/category/pad">
+              <Button color="inherit" size="small" sx={styles.menuItem}>
+                Pad
+              </Button>
+            </Link>
             <Button
               variant="contained"
               size="small"
@@ -55,7 +69,6 @@ const Navbar = () => {
           <CartWidget />
         </Toolbar>
       </AppBar>
-      <ItemListContainer />
     </div>
   );
 };
@@ -89,6 +102,7 @@ const styles = {
   menuItem: {
     marginLeft: "10px",
     marginRight: "5px",
+    color: "white",
   },
 };
 

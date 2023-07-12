@@ -1,16 +1,26 @@
-import Footer from "./components/layout/footer/Footer";
-import Navbar from "./components/layout/navbar/Navbar";
-import FetchingData from "./components/pages/fechingData/FechingData";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/pages/itemList/ItemListContainer";
+import CartContainer from "./components/pages/cart/CartContainer";
+import Layout from "./components/layout/Layout";
+import ItemDetail from "./components/pages/itemDetail/ItemDetail";
+
 function App() {
   return (
-    <div>
-      <Navbar>
-        <ItemListContainer />
-      </Navbar>
-      <FetchingData />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route
+            path="/category/:categoryName"
+            element={<ItemListContainer />}
+          />
+          <Route path="itemDetail/:id" element={<ItemDetail />} />
+          <Route path="/Cart" element={<CartContainer />} />
+        </Route>
+
+        <Route path="*" element={<h1>Not Found 404</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
