@@ -1,34 +1,21 @@
-import { ShoppingCart } from "@mui/icons-material";
+import { Badge } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+
 const CartWidget = () => {
-  const cartItemCount = 7;
-
+  const {cart} = useContext(CartContext)
   return (
-    <Link to="/Cart">
-      <div style={{ position: "relative", display: "inline-block" }}>
-        <ShoppingCart />
-
-        <span
-          style={{
-            position: "absolute",
-            top: "-10px",
-            right: "-10px",
-            backgroundColor: "red",
-            color: "white",
-            borderRadius: "50%",
-            width: "20px",
-            height: "20px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: "12px",
-            fontWeight: "bold",
-          }}
-        >
-          {cartItemCount}
-        </span>
-      </div>
-    </Link>
+    <>
+      <Link to="/cart">
+        <Badge badgeContent={cart.length} showZero color="primary">
+          <ShoppingCartIcon color="main" sx={{ fontSize: 40 }} />
+        </Badge>
+      </Link>
+     
+    </>
   );
 };
 
