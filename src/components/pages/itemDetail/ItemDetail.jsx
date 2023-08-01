@@ -3,14 +3,18 @@ import CounterContainer from "../../common/counter/CounterContainer";
 import { products } from "../../../productsMock";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ItemDetail = () => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, getQuantityById } = useContext(CartContext);
 
   const [producto, setProducto] = useState({});
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const totalQuantity = getQuantityById(id);
 
   useEffect(() => {
     let productoSeleccionado = products.find((elemento) => elemento.id === +id);
@@ -23,7 +27,18 @@ const ItemDetail = () => {
   const onAdd = (cantidad) => {
     let productCart = { ...producto, quantity: cantidad };
     addToCart(productCart);
+    toast.success("Producto agregado exitosamente", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
+
 
   return (
     <div style={itemDetailContainerStyle}>
@@ -31,7 +46,8 @@ const ItemDetail = () => {
     <h4 style={priceStyle}>{producto.price}</h4>
     <img style={imgStyle}src={producto.img} alt="" />
 
-      <CounterContainer stock={producto.stock} onAdd={onAdd} />
+    <CounterContainer stock={producto.stock} onAdd={onAdd} initial={totalQuantity} />
+      <ToastContainer />
     </div>
   );
 };

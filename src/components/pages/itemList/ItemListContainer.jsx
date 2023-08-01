@@ -3,6 +3,7 @@ import { products } from "../../../productsMock";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
+
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const [error, setError] = useState({});
@@ -14,7 +15,10 @@ const ItemListContainer = () => {
       (elemento) => elemento.category === categoryName
     );
     const tarea = new Promise((resolve, reject) => {
-      resolve(categoryName === undefined ? products : productsFiltrados);
+      setTimeout(() => {
+        resolve(categoryName === undefined ? products : productsFiltrados);
+      }, 500);
+     
     });
 
     tarea
@@ -22,7 +26,13 @@ const ItemListContainer = () => {
       .catch((error) => setError(error));
   }, [categoryName]);
 
-  return <ItemList items={items} />;
+  return (
+    <>
+      <ItemList items={items} />
+    </>
+  );
+  
+
 };
 
 export default ItemListContainer;
