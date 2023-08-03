@@ -1,7 +1,6 @@
 export let products = [
   {
-    id: 1,
-    title: "Teclado Magegee Con Cable",
+    title: "Magegee",
     price: 27.699,
     stock: 5,
     description: "Retroiluminado/negro/rojo",
@@ -9,8 +8,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687880426/Proyecto%20Reactjs/D_NQ_NP_915177-MLA69000172199_042023-O_g0htys.webp",
   },
   {
-    id: 2,
-    title: "Teclado gamer Redragon",
+    title: "Redragon",
     price: 22000,
     stock: 5,
     description: " Dragonborn K630 QWERTY Redragon negro con luz RGB",
@@ -18,8 +16,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687880683/Proyecto%20Reactjs/D_NQ_NP_610174-MLA53970594239_022023-O_b5gkvh.webp",
   },
   {
-    id: 3,
-    title: "Mouse Gamer : Razer",
+    title: "Razer",
     price: 190000,
     stock: 5,
     description: "cehead Gaming-grade Wireless (13gy)",
@@ -27,8 +24,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687880777/Proyecto%20Reactjs/D_NQ_NP_765876-MLA31604773756_072019-O_ghobcf.webp",
   },
   {
-    id: 4,
-    title: "Mouse Gamer : Logitech",
+    title: "Logitech",
     price: 80000,
     stock: 5,
     description: "Pro-Gamer Edicion League of Legends",
@@ -36,8 +32,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687880974/Proyecto%20Reactjs/D_NQ_NP_2X_797005-MLA52223463231_102022-F_qagtvs.webp",
   },
   {
-    id: 5,
-    title: "Auriculares Gamer Logitech",
+    title: "Logitech",
     price: 250000,
     stock: 5,
     description: "G Pro X Headset Pc 7.1 Ps4 Xbox",
@@ -45,8 +40,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687881093/Proyecto%20Reactjs/D_NQ_NP_2X_681845-MLA70076079850_062023-F_fhadhp.webp",
   },
   {
-    id: 6,
-    title: "Auriculares Gamer Corsair",
+    title: "Corsair",
     price: 450000,
     stock: 5,
     description: "Virtuoso Rgb Xt",
@@ -54,17 +48,15 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687881203/Proyecto%20Reactjs/D_NQ_NP_694040-MLA52557473052_112022-O_po9gnp.webp",
   },
   {
-    id: 7,
-    title: "Monitor gamer curvo Samsung",
+    title: "Samsung",
     price: 200000,
     stock: 5,
-    description: " Odyssey G5 S32AG55 LCD 32",
+    description: "Odyssey G5 S32AG55 LCD 32",
     category: "monitores",
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687881392/Proyecto%20Reactjs/D_NQ_NP_978463-MLA52219702416_102022-O_intq02.webp",
   },
   {
-    id: 8,
-    title: "Smart Monitor Curvo Samsung ",
+    title: "Samsung ",
     price: 1500000,
     stock: 5,
     description: "Odyssey Ark 55 4k 165hz 60w Rms",
@@ -72,8 +64,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687881524/Proyecto%20Reactjs/D_NQ_NP_2X_749298-MLA53036500828_122022-F_q5mapg.webp",
   },
   {
-    id: 9,
-    title: "Mouse pad Gamer Logitech",
+    title: "Logitech",
     price: 215000,
     stock: 5,
     description: " Powerplay de tela 344mm x 321mm x 2mm black",
@@ -81,8 +72,7 @@ export let products = [
     img: "https://res.cloudinary.com/dvpasesj3/image/upload/v1687881630/Proyecto%20Reactjs/D_NQ_NP_2X_904582-MLA40721875266_022020-F_w18zku.webp",
   },
   {
-    id: 10,
-    title: "Mouse Pad gamer Razer Firefly V2",
+    title: "Razer",
     price: 15000,
     stock: 2,
     description: "Firefly de tela y goma 255mm x 355mm x 3mm black",

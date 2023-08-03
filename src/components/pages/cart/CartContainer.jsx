@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
   const { cart, clearCart, deleteById, getTotalPrice } = useContext(CartContext);
@@ -30,15 +31,17 @@ const CartContainer = () => {
       <h1>Carritoooo</h1>
 
       {cart.map((elemento) => {
-        return (
-          <div key={elemento.id} style={{ border: "2px solid black" }}>
-            <h4>{elemento.title}</h4>
-            <h5>{elemento.price}</h5>
-            <h5>{elemento.quantity}</h5>
-            <button onClick={() => deleteById(elemento.id)}>eliminar</button>
-          </div>
-        );
-      })}
+  return (
+    <div key={elemento.id} style={styles.cartItem}>
+      <h4 style={styles.title}>{elemento.title}</h4>
+      <h5 style={styles.price}>Precio: {elemento.price}</h5>
+      <h5 style={styles.quantity}>Cantidad: {elemento.quantity}</h5>
+      <img style={styles.image} src={elemento.img} alt="" />
+      <button style={styles.deleteButton} onClick={() => deleteById(elemento.id)}>Eliminar</button>
+      
+    </div>
+  );
+})}
 
    
    {
@@ -46,8 +49,46 @@ const CartContainer = () => {
    }
 
   <h2>El total es: {total}</h2>
+  <Link to="/checkout" >Finalizar compra</Link>
     </div>
   );
+};
+
+const styles = {
+  cartItem: {
+    border: "2px solid black",
+    padding: "10px",
+    marginBottom: "10px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    marginBottom: "5px",
+  },
+  price: {
+    fontSize: "1rem",
+    marginBottom: "5px",
+  },
+  quantity: {
+    fontSize: "1rem",
+    marginBottom: "5px",
+  },
+  image: {
+    width: "200px",
+    height: "200px",
+    marginBottom: "5px",
+  },
+  deleteButton: {
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    padding: "5px 10px",
+    cursor: "pointer",
+  },
 };
 
 export default CartContainer;

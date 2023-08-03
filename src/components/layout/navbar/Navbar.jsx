@@ -57,14 +57,6 @@ const Navbar = () => {
                 Pad
               </Button>
             </Link>
-            <Button
-              variant="contained"
-              size="small"
-              color="success"
-              sx={styles.menuItem}
-            >
-              Contacto
-            </Button>
           </div>
           <CartWidget />
         </Toolbar>
