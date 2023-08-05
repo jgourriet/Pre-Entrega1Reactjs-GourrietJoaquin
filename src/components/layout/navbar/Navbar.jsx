@@ -1,101 +1,123 @@
-import { AppBar, Toolbar, Button } from "@mui/material";
+import { useState } from "react";
 import CartWidget from "../../common/cart.Widget/CartWidget";
-import "./Navbar.css";
+import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const logoURL =
-    "https://res.cloudinary.com/dvpasesj3/image/upload/v1687271891/samples/ecommerce/logo-ECO_bnyqku.png";
-  const logoURL2 =
-    "https://res.cloudinary.com/dvpasesj3/image/upload/v1687288049/title.logo_eom2ej.png";
+  const logoURL2 = "https://res.cloudinary.com/dvpasesj3/image/upload/v1691194899/SEA-REACTJS_hbji2e.png";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+  
+
   return (
     <div>
-      <AppBar
-        position="static"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          backgroundColor: "black",
-        }}
-      >
+      <AppBar style={navStyle} position="static">
         <Toolbar>
-          <Link to="/">
-            <div style={styles.logoContainer}>
-              <img src={logoURL} alt="Logo" style={styles.logoImage} />
-              <img src={logoURL2} alt="Logo" style={styles.logoImage2} />
+        <Link to="/">
+            <div style={logoContainer}>
+              <img src={logoURL2} alt="Logo" style={logoImage} />
             </div>
           </Link>
-          <div style={styles.menu}>
-            <Link to="/">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Todo
-              </Button>
-            </Link>
-            <Link to="/category/teclados">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Teclados
-              </Button>
-            </Link>
-            <Link to="/category/mouse">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Mouse
-              </Button>
-            </Link>
-            <Link to="/category/auriculares">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Auriculares
-              </Button>
-            </Link>
-            <Link to="/category/monitores">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Monitores
-              </Button>
-            </Link>
-            <Link to="/category/pad">
-              <Button color="inherit" size="small" sx={styles.menuItem}>
-                Pad
-              </Button>
-            </Link>
-          </div>
+          <List sx={{ display: "flex", flexDirection: "row", marginLeft: "auto", }}>
+            <ListItem button sx={{ display: { xs: "none", md: "block",}, }}>
+              <Link to="/" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Todo" />
+              </Link>
+            </ListItem>
+            <ListItem button sx={{ display: { xs: "none", md: "block" } }}>
+              <Link to="/category/teclados" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Teclados" />
+              </Link>
+            </ListItem>
+            <ListItem button sx={{ display: { xs: "none", md: "block" } }}>
+              <Link to="/category/mouse" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Mouse" />
+              </Link>
+            </ListItem>
+            <ListItem button sx={{ display: { xs: "none", md: "block" } }}>
+              <Link to="/category/auriculares" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Auriculares" />
+              </Link>
+            </ListItem>
+            <ListItem button sx={{ display: { xs: "none", md: "block" } }}>
+              <Link to="/category/monitores" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Monitores" />
+              </Link>
+            </ListItem>
+            <ListItem button sx={{ display: { xs: "none", md: "block" } }}>
+              <Link to="/category/pad" style={{ textDecoration: "none", color:"white" }}>
+                <ListItemText primary="Pad" />
+              </Link>
+            </ListItem>
+          </List>
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            onClick={toggleMenu}
+            sx={{ display: { xs: 'block', md: 'none' }, marginRight: '10px' }}
+          >
+            <MenuIcon />
+          </IconButton>
           <CartWidget />
         </Toolbar>
       </AppBar>
+      <Drawer anchor="top" open={isMenuOpen} onClose={closeMenu}>
+        <List style={navStyleM}>
+          <ListItem onClick={closeMenu} button component={Link} to="/" sx={linkStyle}>
+            <ListItemText primary="Todo" />
+          </ListItem>
+          <ListItem onClick={closeMenu} button component={Link} to="/category/teclados">
+            <ListItemText primary="Teclados" />
+          </ListItem>
+          <ListItem onClick={closeMenu} button component={Link} to="/category/mouse">
+            <ListItemText primary="Mouse" />
+          </ListItem>
+          <ListItem onClick={closeMenu} button component={Link} to="/category/auriculares">
+            <ListItemText primary="Auriculares" />
+          </ListItem>
+          <ListItem onClick={closeMenu} button component={Link} to="/category/monitores">
+            <ListItemText primary="Monitores" />
+          </ListItem>
+          <ListItem onClick={closeMenu} button component={Link} to="/category/pad">
+            <ListItemText primary="Pad" />
+          </ListItem>
+        </List>
+      </Drawer>
     </div>
   );
 };
 
-const styles = {
-  navbar: {
-    backgroundColor: "black",
-    color: "white",
-  },
-
-  logoContainer: {
+const navStyle = {
+  backgroundColor: "#000", // Fondo negro
+  color: "#fff", // Texto blanco
+};
+const navStyleM = {
+  backgroundColor: "#000", // Fondo negro
+  color: "#fff", // Texto blanco
+  padding: "10px"
+  
+};
+const logoContainer = {
     display: "flex",
     alignItems: "center",
-  },
-  logoImage: {
-    width: "50px",
-    height: "50px",
-    marginRight: "10px",
-  },
-  logoImage2: {
-    width: "200px",
-    height: "40px",
-    marginRight: "10px",
-  },
-  heading: {
-    margin: 0,
-  },
-  menu: {
-    marginLeft: "auto",
-  },
-  menuItem: {
-    marginLeft: "10px",
-    marginRight: "5px",
-    color: "white",
-  },
-};
-
+  }
+ const logoImage= {
+  width: "150px",
+  height: "80px",
+  margin: "10px",
+}
+const linkStyle = {
+  textDecoration: "none", // Quitar subrayado del enlace
+  color: "black", // Color del texto del enlace
+  padding: "10px",
+}
 export default Navbar;
