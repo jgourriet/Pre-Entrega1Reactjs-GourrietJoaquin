@@ -47,10 +47,11 @@ const ItemDetail = () => {
   };
 
   const imgStyle = {
-    width: isZoomed ? "700px" : "350px",
-    height: "auto",
-    borderRadius: "8px",
-    cursor: "zoom-in",
+    width: "400",
+    height: "300px",
+    
+   
+    
   };
 
   return (
@@ -69,7 +70,6 @@ const ItemDetail = () => {
         <h2 style={titleStyle}>{producto.title}</h2>
         <p style={descriptionStyle}>{producto.description}</p>
         <h4 style={priceStyle}>{producto.price}</h4>
-
         {(typeof totalQuantity === "undefined" || producto.stock > totalQuantity) &&
           producto.stock > 0 && (
             <CounterContainer

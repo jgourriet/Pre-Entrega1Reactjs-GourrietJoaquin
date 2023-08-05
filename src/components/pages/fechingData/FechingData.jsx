@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const FetchingData = () => {
-  const [users, setUsers] = useState([]);
+  const [, setUsers] = useState([]);
 
   useEffect(() => {
     let promesa = fetch("https://jsonplaceholder.typicode.com/users");
@@ -9,8 +9,8 @@ const FetchingData = () => {
     promesa
       .then((res) => res.json())
       .then((res) => setUsers(res))
-      .catch((error) => console.log(error))
-      .finally(() => console.log("termino el  proceso"));
+      .catch((error) =>(error))
+      .finally(() =>("termino el  proceso"));
   }, []);
 
   const createUser = () => {
@@ -36,9 +36,7 @@ const FetchingData = () => {
         bs: "harness real-time e-markets",
       },
     };
-    //   console.log(newUser)
-    //   console.log(JSON.stringify(newUser))
-    //   console.log(JSON.parse(JSON.stringify(newUser)))
+    
 
     let promesa = fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
@@ -49,7 +47,7 @@ const FetchingData = () => {
       body: JSON.stringify(newUser),
     });
 
-    promesa.then((res) => console.log(res)).catch((err) => console.log(err));
+    promesa.then((res) => (res)).catch((err) => (err));
   };
 
   const deleteUser = (id) => {

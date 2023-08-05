@@ -9,10 +9,45 @@ import {
   doc,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { Button, TextField, Typography, IconButton, Paper, Box } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "start",
+  minHeight: "100vh",
+};
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  border: "2px solid #ccc",
+  padding: "20px",
+  width: "80%",
+  maxWidth: "600px",
+};
+
+const inputStyle = {
+  margin: "10px",
+};
+
+const buttonStyle = {
+  marginTop: "10px",
+};
+
+const estilosH1 = {
+  color: 'blue',         
+  fontSize: '32px',      
+  fontWeight: 'bold',   
+  textAlign: 'center',
+  margin:"20px",  
+};
 
 const CheckoutContainer = () => {
   const [orderId, setOrderId] = useState("");
-
   const { cart, getTotalPrice } = useContext(CartContext);
 
   const [data, setData] = useState({
@@ -50,40 +85,65 @@ const CheckoutContainer = () => {
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
+    <Box sx={containerStyle}>
+      <Typography variant="h1" sx={estilosH1}>
+        CHECKOUT
+      </Typography>
 
       {orderId ? (
-        <div>
-          <h3>Gracias por su compra.</h3>
-          <h4>Su numero de comprar es: {orderId}</h4>
-          <Link to="/">Volver al Inicio</Link>
-        </div>
+        <Paper sx={formStyle}>
+          <Typography variant="h4" gutterBottom>
+            Gracias por su compra.
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            Numero de compra: {orderId}
+          </Typography>
+          
+          <IconButton sx={{ mt: 2, color: 'green' }}>
+            <CheckCircleIcon />
+          </IconButton>
+          <Link to="/">
+            <Button variant="contained">Volver al inicio</Button>
+          </Link>
+        </Paper>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input
+        <form style={formStyle} onSubmit={handleSubmit}>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            style={inputStyle}
             type="text"
             placeholder="Ingrese su nombre"
             name="name"
             onChange={handleChange}
           />
-          <input
+          <TextField
+            style={inputStyle}
             type="text"
             placeholder="Ingrese su telefono"
             name="phone"
             onChange={handleChange}
           />
-          <input
+          <TextField
+            style={inputStyle}
             type="email"
             placeholder="Ingrese su email"
             name="email"
             onChange={handleChange}
           />
-          <button type="submit">Comprar</button>
+          <Button
+            variant="contained"
+            color="success"
+            type="submit"
+            style={buttonStyle}
+          >
+            Comprar
+          </Button>
         </form>
       )}
-    </div>
+    </Box>
   );
 };
 
 export default CheckoutContainer;
+
