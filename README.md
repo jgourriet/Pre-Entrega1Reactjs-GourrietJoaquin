@@ -18,7 +18,7 @@ Ejecutar: npm install.
 
 ## Para Iniciar en Local
 
-Ejecutar: npm start
+Ejecutar: npm run dev
 
 
 ## Vista Previa de la Aplicación
